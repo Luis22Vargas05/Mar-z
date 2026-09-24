@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es-es">
+<head th:replace="Layout/layout :: head">
+</head>
+<body>
+<nav th:replace="Layout/layout :: navbar"></nav>
+<h1 class="page-content" th:text="${titulo}"></h1>
+<div class="container"
+     style="margin-top: 10px; padding: 5px; width: 80%">
+    <form th:object="${telefonoActualizar}"
+          th:action="@{/editarTelefonoBy/{id}(id=${telefonoActualizar.idtelefono})}" method="post">
+        <div class="mb-3">
+            <label for="tipoform" class="form-label">Tipo</label>
+            <input type="text" class="form-control" id="tipoform" th:field="*{tipo}" aria-describedby="tipoHelp" required>
+            <div id="tipoHelp" class="form-text">
+                Ej: Fijo, Celular
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="numeroform" class="form-label">Número</label>
+            <input type="number" class="form-control" id="numeroform" th:field="*{numero}" aria-describedby="numeroHelp" required>
+            <div id="numeroHelp" class="form-text">
+                Ej: 3123456789
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="seccionalform" class="form-label">Seccional</label>
+            <select class="form-select" id="seccionalform" th:field="*{seccional}" required>
+                <option th:each="seccional : ${seccionales}"
+                        th:value="${seccional.idseccional}"
+                        th:text="${seccional.nombre}">
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Actualizar Teléfono
+        </button>
+        <a th:href="@{/listarTelefonos}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

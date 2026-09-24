@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es-es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+<nav th:replace="layout/layout :: navbar"></nav>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 35vh;background-color: #cfcfcf; border-radius: 0 0 30px 30px;">
+    <div class="jumbotron">
+        <h1 class="display-4" style="text-align: center;font-weight: bold;font-size: 300%;">Hola, Compañeros</h1>
+        <br/>
+        <p class="lead">En este espacio encontraras el plan de estudios de la JDC</p>
+        <hr class="my-4" />
+        <p style="font-style: italic;">Esta materia es de 7 semestre y tiene 3 créditos</p>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Empresa</h5>
+                <p class="card-text">Actividades Empresariales</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Desarrollo</h5>
+                <p class="card-text">MVC - Contenido Web - Arquitectura Javas</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<img th:src="@{/Images/sistemas.png}" alt="img" style="border-radius : 20px;width: 80%;" />
+<br/>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es-es">
+<head th:replace="Layout/layout ::head">
+
+</head>
+<body>
+<nav th:replace="Layout/layout :: navbar"></nav>
+<div class = "container" style="margin-top: 10px; padding: 5px; width: 80%">
+    <form th:object="${objrector}" th:action="@{/crearRector}" method="post">
+        <div class="mb-3">
+            <label for="primerapellidoform" class="form-label">Primer Apellido</label>
+            <input type="text" class="form-control" id="primerapellidoform" th:field="*{primerapellido}" aria-describedby="primerapellidoHelp"
+                   required
+                   oninvalid="this.setCustomValidity('Este campo no puede estar bacio por favor digite el nombre')"
+                   oninput="this.setCustomValidity('')">
+            <div id="primerapellidoHelp" class="form-text">Ej: Carvajal
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="segundoapellidoform" class="form-label">Segundo Apellido</label>
+            <input type="text" class="form-control" id="segundoapellidoform" th:field="*{segundoapellido}" aria-describedby="segundoapellidoHelp" required>
+            <div id="segundoapellidoHelp" class="form-text">Ej: Reyes</div>
+        </div>
+        <div class="mb-3">
+            <label for="nombreform" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreform" th:field= "*{nombre}" aria-describedby="nombreHelp" required>
+            <div id="nombreHelp" class="form-text">Ej: Daniel</div>
+        </div>
+        <div class="mb-3">
+            <label for="numdocumentoform" class="form-label">Numdocumento</label>
+            <input type="text" class="form-control" id="numdocumentoform" th:field= "*{numdocumento}" aria-describedby="numdocumentoHelp" required>
+            <div id="numdocumentoHelp" class="form-text">Ej: 1055690006</div>
+        </div>
+        <div class="mb-3">
+            <label for="tipo" class="form-label text-secondary fw-semibold">Tipo Documento</label>
+            <select id="tipo" th:field="*{tipo}" class="form-select" required>
+                <option value="" disabled selected>Seleccione el tipo</option>
+                <option value="1">CC - Cédula de Ciudadanía</option>
+                <option value="2">TI - Tarjeta de Identidad</option>
+                <option value="3">CE - Cédula de Extranjería</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="fechadenacimientoform" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fechadenacimientoform" th:field="*{fechadenacimiento}" aria-describedby="fechadenacimientoHelp" required>
+            <div id="fechadenacimientoHelp" class="form-text">Seleccione la fecha de nacimiento
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="universidadform" class="form-label">Universidad</label>
+            <select class="form-select" id="universidadform" th:field="*{universidad}" required><option th:each="universidad : ${universidades}" th:value="${universidad.iduniversidad}" th:text="${universidad.nombre}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Rector</button>
+        <a th:href="@{/listarRectores}" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

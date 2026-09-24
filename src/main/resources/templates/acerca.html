@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+<nav th:replace="layout/layout :: navbar"></nav>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 35vh;background-color: #cfcfcf; border-radius: 0 0 30px 30px;">
+    <div class="jumbotron">
+        <h1 class="display-4" style="text-align: center;font-weight: bold;font-size: 300%;">Software de Prueba</h1>
+        <br/>
+        <p class="lead">Procesos CRUD con PostgreSQL y Spring</p>
+        <hr class="my-4" />
+        <p style="font-style: italic;">Elaborado por el grupo de Software II</p>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">SCRUM</h5>
+                <p class="card-text">Marco de Trabajo</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">IntelliJIDEA</h5>
+                <p class="card-text">IDE de Desarrollo</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Git</h5>
+                <p class="card-text">Control de Versiones</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">ClickUp</h5>
+                <p class="card-text">Software Gestión de Equipos</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
