@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MAR-Z | Mis solicitudes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Mis solicitudes</h2>
+
+            <p class="text-muted mb-0">
+                Solicitudes creadas por
+                <strong th:text="${usuario.nombre}"></strong>
+            </p>
+        </div>
+
+        <a th:href="@{/solicitudes/nueva}"
+           class="btn btn-primary">
+            Nueva solicitud
+        </a>
+
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-dark">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Categoría</th>
+                        <th>Prioridad</th>
+                        <th>Estado</th>
+                        <th>Fecha</th>
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    <tr th:each="solicitud : ${solicitudes}">
+
+                        <td th:text="${solicitud.idsolicitud}">
+                            1
+                        </td>
+
+                        <td th:text="${solicitud.titulo}">
+                            Título
+                        </td>
+
+                        <td th:text="${solicitud.categoria}">
+                            SOFTWARE
+                        </td>
+
+                        <td th:text="${solicitud.prioridad}">
+                            MEDIA
+                        </td>
+
+                        <td>
+
+                            <span class="badge bg-primary"
+                                  th:text="${solicitud.estado}">
+                                ABIERTA
+                            </span>
+
+                        </td>
+
+                        <td th:text="${solicitud.fechaCreacion}">
+                            2026-09-24
+                        </td>
+
+                    </tr>
+
+                    <tr th:if="${#lists.isEmpty(solicitudes)}">
+
+                        <td colspan="6"
+                            class="text-center text-muted py-4">
+
+                            No tienes solicitudes registradas.
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
